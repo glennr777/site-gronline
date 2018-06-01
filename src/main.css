@@ -176,7 +176,7 @@
       height: 100vh;
       display: flex;
       flex: 1 1 auto;
-      background-image: url('./img/header.jpg');
+      background-image: url('./img/backgrounds/header.jpg');
       background-position: center;
       background-size: cover;
       background-attachment: fixed;
