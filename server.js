@@ -1,29 +1,28 @@
-#!/usr/bin/env node
-
-var express = require("express"),
-    app = express(),
-    bodyParser = require('body-parser'),
-    errorHandler = require('errorhandler'),
-    methodOverride = require('method-override'),
-    hostname = 'localhost',
-    port = 9000,
-    publicDir = process.argv[2] || __dirname + '/dist',
-    path = require('path');
-
-app.get("/", function (req, res) {
-  res.sendFile(path.join(publicDir, "/index.html"));
-});
-
-app.use(methodOverride());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-app.use(express.static(publicDir));
-app.use(errorHandler({
-  dumpExceptions: true,
-  showStack: true
-}));
-
-console.log("Simple static server showing %s listening at http://%s:%s", publicDir, hostname, port);
-app.listen(port, hostname);
+/**
+ * Simple express sever
+ * Copyright (c) 2014, marlun78
+ * MIT License, https://gist.github.com/marlun78/bd0800cf5e8053ba9f83
+ * 
+ * Assumes this folder structure
+ * /public
+ * /server
+ * 
+ * Express: http://expressjs.com
+ */
+var app, server,
+    express = require('express'),
+    path = require('path'),
+    host = process.env.HOST || '127.0.0.1',
+    port = process.env.PORT || 3000,
+    root = path.resolve(__dirname, '..');
+ 
+app = express();
+app.use(function(req, res, next) { console.log(req.url); next(); });
+app.use(express.static(root + '/dist'));
+server = app.listen(port, host, serverStarted);
+ 
+function serverStarted () {
+    console.log('Server started', host, port);
+    console.log('Root directory', root);
+    console.log('Press Ctrl+C to exit...\n');
+}

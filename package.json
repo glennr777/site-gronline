@@ -6,39 +6,42 @@
   "scripts": {
     "start": "node server.js",
     "webpack-watch": "webpack --watch",
-    "webpack-prod": "webpack -p --watch",
+    "build-prod": "webpack -p",
     "dev": "concurrently --kill-others \"npm run webpack-watch\" \"npm run start\"",
-    "prod": "concurrently --kill-others \"npm run webpack-prod\" \"npm run start\""
+    "webpack-devserver": "webpack-dev-server --bonjour"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "body-parser": "^1.1.2",
-    "concurrently": "^3.5.1",
-    "css-loader": "^0.28.9",
-    "css-mqpacker": "^6.0.2",
-    "cssnano": "^3.10.0",
-    "csswring": "^6.0.3",
-    "errorhandler": "^1.0.1",
-    "express": "^4.1.2",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.6",
-    "html-webpack-plugin": "^2.30.1",
-    "method-override": "^1.0.0",
-    "postcss-assets-webpack-plugin": "^1.1.0",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-font-grabber": "^1.0.7",
-    "postcss-font-magician": "^2.1.0",
-    "postcss-import": "^11.0.0",
-    "postcss-inline-svg": "^3.0.0",
-    "postcss-loader": "^2.1.0",
-    "postcss-nested": "^3.0.0",
-    "rollup-plugin-alias": "^1.4.0",
-    "style-loader": "^0.20.1",
-    "svg-inline-loader": "^0.8.0",
-    "url-loader": "^0.6.2",
-    "webpack": "^3.10.0"
+    "body-parser": "1.19.0",
+    "clean-webpack-plugin": "3.0.0",
+    "concurrently": "3.5.1",
+    "css-loader": "4.3.0",
+    "cssnano": "4.1.10",
+    "csswring": "6.0.3",
+    "errorhandler": "1.0.1",
+    "express": "4.17.1",
+    "file-loader": "6.1.0",
+    "html-webpack-plugin": "4.5.0",
+    "method-override": "3.0.0",
+    "mini-css-extract-plugin": "0.11.2",
+    "postcss": "8.1.1",
+    "postcss-assets-webpack-plugin": "4.0.0",
+    "postcss-cssnext": "3.1.0",
+    "postcss-font-grabber": "2.1.0",
+    "postcss-font-magician": "2.3.1",
+    "postcss-import": "12.0.1",
+    "postcss-inline-svg": "4.1.0",
+    "postcss-loader": "4.0.2",
+    "postcss-nested": "5.0.1",
+    "style-loader": "1.2.1",
+    "svg-inline-loader": "0.8.2",
+    "url-loader": "4.1.0",
+    "webmanifest-loader": "^0.3.0",
+    "webpack": "4.44.2",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0"
   },
   "bin": {
     "simple-server": "./start.js"
@@ -50,6 +53,6 @@
     }
   },
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "3.5.1"
   }
 }

@@ -1,196 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#262626"/>
+    <meta name="msapplication-navbutton-color" content="#262626"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <meta name="theme-color" content="#262626"/>
-	<meta name="msapplication-navbutton-color" content="#262626"/>
-	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <title>Glenn Robinson - Web Developer Designer UK England Leeds West Yorksire</title>
+    <meta name="Description" content="Glenn Robinson - Web developer designer UK England Leeds West Yorkshire">
 
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com
+    /css?family=Quicksand:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="apple-touch-icon" href="<%= require('./img/apple-touch-icon.png').default %>" sizes="180x180">
+    <link rel="icon" href="<%= require('./img/favicon-16x16.png').default %>" sizes="16x16">
+    <link rel="icon" href="<%= require('./img/favicon-32x32.png').default %>" sizes="32x32">
+    <link rel="shortcut icon" href="<%= require('./img/favicon.ico').default %>">
+    <script>
+      document.documentElement.className = 'js';
+    </script>
+  </head>
 
-  <title>Glenn Robinson - Web Developer Designer UK England Leeds West Yorksire</title>
-  <meta name="Description" content="Glenn Robinson - Web developer designer UK England Leeds West Yorkshire">
-
-  <!-- Custom Fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-  <script>
-    document.documentElement.className = 'js';
-  </script>
-</head>
-
-<body>
-  <nav id="mainNav">
-    <button id="navButton" type="button" data-toggle="collapse" data-target="#navbar">
-      <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
-    </button>
-    <a class="page-scroll" href="#page-top">Glenn Robinson</a>
-
-    <div id="navBar">
-      <ul>
-        <li>
-          <a class="page-scroll" href="#about">About</a>
-        </li>
-        <li>
-          <a class="page-scroll" href="#experience">Experience</a>
-        </li>
-        <li>
-          <a class="page-scroll" href="#portfolio-intro">Portfolio</a>
-        </li>
-        <li>
-          <a class="page-scroll" href="#contact">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <header id="page-top">
-    <div class="header-content">
-      <div class="header-content-inner">
-        <h1 id="homeHeading">Front end developer.</h1>
-        <hr>
-        <p>Hello, and welcome to my website. It's just a little something I've put together for two reasons&#58; to put my own stamp on the web (for what that's worth) and it's somewhere I can try out new design and coding ideas.</p>
-        <a href="#about" class="btn page-scroll">Find Out More</a>
-      </div>
-    </div>
-  </header>
-
-  <section id="about">
-    <div class="container container-heading flex-column">
-      <h2 class="section-heading">I've been around a while...</h2>
-      <hr class="light">
-      <p class="text-faded">After studying various aspects of computing (both hardware and software) I moved onto web development and have been working away as a developer in the financial industry for over 10 years now.</p>
-      <a href="#experience" class="page-scroll btn">Experience</a>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="container container-heading">
-      <h2 class="section-heading">I've done some things...</h2>
-      <hr class="primary">
-    </div>
-    <div class="container">
-      <div class="service-box">
-        <i class="fab fa-4x fa-html5"></i>
-        <h3>HTML 5</h3>
-        <p class="text-muted">I've been working on HTML using X-HTML to HTML5 since Internet Explorer 6 was the dominant browser.</p>
-      </div>
-      <div class="service-box">
-        <i class="fab fa-4x fa-css3"></i>
-        <h3>CSS 3</h3>
-        <p class="text-muted">Have working experience in rendering engines from IE6 through to Edge, Chrome, FireFox, Safari.</p>
-      </div>
-      <div class="service-box">
-        <i class="fab fa-4x fa-js-square"></i>
-        <h3>JavaScript</h3>
-        <p class="text-muted">From jQuery to React, I've made quite a few web applications over the years.</p>
-      </div>
-      <div class="service-box">
-        <i class="fas fa-4x fa-heart"></i>
-        <h3>Still got the love</h3>
-        <p class="text-muted">Development isn't just a job, it's a relationship. It takes time, care and dedication but the results are worth it!</p>
-      </div>
-    </div>
-  </section>
-
-  <aside id="portfolio-intro">
-    <div class="container flex-column">
-      <h2>Portfolio</h2>
-      <hr class="primary">
-      <p>Just a small selection of previous work</p>
-    </div>
-  </aside>
-
-  <section id="portfolio">
-    <div class="container">
-      <div class="portfolio-item">
-        <a href="images/portfolio/fullsize/Capture.PNG" class="portfolio-box">
-          <img src="images/portfolio/thumbnails/Capture.PNG" class="img-responsive" alt="">
-          <div class="portfolio-box-caption">
-            <div class="portfolio-box-caption-content">
-              <div class="project-category text-faded">
-                Corporate, Adaptive
-              </div>
-              <div class="project-name">
-                first direct (Lead Web Developer)
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="portfolio-item">
-        <a href="images/portfolio/fullsize/Capture2.PNG" class="portfolio-box">
-          <img src="images/portfolio/thumbnails/Capture2.PNG" class="img-responsive" alt="">
-          <div class="portfolio-box-caption">
-              <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Light-weight
-                  </div>
-                  <div class="project-name">
-                    Bodylines Gym
-                  </div>
-              </div>
-          </div>
-        </a>
-      </div>
-        <div class="portfolio-item">
-          <a href="images/portfolio/fullsize/Capture3.PNG" class="portfolio-box">
-            <img src="images/portfolio/thumbnails/Capture3.PNG" class="img-responsive" alt="">
-            <div class="portfolio-box-caption">
-              <div class="portfolio-box-caption-content">
-                <div class="project-category text-faded">
-                  Functional Development
-                </div>
-                <div class="project-name">
-                  HSBC Branch Locator Tool
-                </div>
-              </div>
-            </div>
-          </a>
+  <body>
+    <nav id="mainNav">
+        <button id="navButton" type="button" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+        </button>
+        <div id="navBar">
+          <a class="page-scroll logo" href="#page-top" aria-label="back to top">GR.</a>
+          <ul>
+            <li>
+              <a class="page-scroll" href="#about">About</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#contact">Contact</a>
+            </li>
+          </ul>
         </div>
-        <div class="portfolio-item">
-          <a href="images/portfolio/fullsize/Capture5.PNG" class="portfolio-box">
-            <img src="images/portfolio/thumbnails/Capture5.PNG" class="img-responsive" alt="">
-            <div class="portfolio-box-caption">
-              <div class="portfolio-box-caption-content">
-                <div class="project-category text-faded">
-                  Single Page
-                </div>
-                <div class="project-name">
-                  Moustache Barbers
-                </div>
-              </div>
+    </nav>
+
+    <header id="page-top">
+      <div class="header-content">
+        <div class="header-content-inner">
+          <h1 id="homeHeading">Glenn Robinson</h1>
+          <hr>
+          <div class="header-content-inner-sections">
+            <div>
+              <p class="subheading">Browser<br/>Engineer</p>
+              <a href="#about" class="page-scroll">About</a>
             </div>
-          </a>
+            <div>
+              <a href="mailto:glennr777@gmail.com">E: glennr777@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="main-content">
+      <div id="about" class="container">
+        <div class="container-header">
+          <h2>Almost 2 decades of experience</h2>
+          <p class="text-faded">I have worked in IT in the financial sector for almost 20 years.</p>
+          <p>Whilst I have a vast amount of experence working on transaction based Secure Internet Banking, I have also developed Google&nbsp;Maps&nbsp;API based systems, automated processes (web &amp; office based systems), interactive in-branch customer demostrations, calculators to name a few.</p>
+          <p>Have production experience of JavaScript (React, Angular, NodeJS, Redux), Java (AEM, IBM Websphere Portal), Visual Basic (Automation from Excel/Word to JSON/XML) amongst others.</p>
+        </div>
+        <div class="container-section">  
+          <ul class="icons">
+            <li class="icon-box">
+              <i class="fab fa-4x fa-html5"></i>
+              <h3 class="sr-only">HTML 5</h3>
+            </li>
+            <li class="icon-box">
+              <i class="fab fa-4x fa-css3"></i>
+              <h3 class="sr-only">CSS 3</h3>
+            </li>
+            <li class="icon-box">
+              <i class="fab fa-4x fa-js-square"></i>
+              <h3 class="sr-only">JavaScript</h3>
+            </li>
+            <li class="icon-box">
+              <i class="fas fa-4x fa-heart"></i>
+              <h3 class="sr-only">Still got the love</h3>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="contact" class="container">
+        <div class="container-header">
+          <h2>Say( 'Hello world!' );</h2>
+          <p>I'm currently working for the same company in the financial sector on some pretty cool projects, so not currently looking for any assignments. Don't let this stop you saying Hi though, things change!</p>
+          <p>You can contact me through the following methods:</p>
+        </div>
+        <div class="container-section">
+          <ul class="icons">
+            <li class="icon-box">
+              <a
+              class="contact-item"
+              href="https://www.linkedin.com/in/glenn-robinson-88b6977a/"
+              title="Linked-in"
+            >
+              <i class="fab fa-linkedin fa-4x"></i>
+            </a>
+            </li>
+            <li class="icon-box">
+              <a
+                class="contact-item"
+                href="mailto:glennr777@gmail.com"
+                title="Email glennr777@gmail.com"
+              >
+                <i class="far fa-envelope fa-4x"></i>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
-
-      <section id="contact">
-        <div class="container flex-column">
-          <div class="container-header">
-            <h2 class="section-heading">Say( 'Hello world!' );</h2>
-            <hr class="primary">
-            <p>I'm currently working for the same company in the financial sector on some pretty cool projects, so not currently looking for any assignments. Don't let this stop you saying Hi though, things change!</p>
-            <p>You can contact me through the following methods:</p>
-          </div>
-          <div class="contact-section">
-            <a class="contact-item" href="https://www.linkedin.com/in/glenn-robinson-88b6977a/">
-              <i class="fab fa-linkedin fa-3x"></i>
-              <p>Glenn Robinson</p>
-            </a>
-            <a class="contact-item" href="mailto:glennr777@gmail.com">
-              <i class="far fa-envelope fa-3x"></i>
-              <p>glennr777@gmail.com</p>
-            </a>
-          </div>
-        </div>
-      </section>
-    </body>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  </body>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </html>
