@@ -1,5 +1,4 @@
 @import './css/normalize.css';
-@import './css/jstyles.css';
 
 :root {
   /* dims */
@@ -10,8 +9,9 @@
   --clr-1: rgb(26, 26, 26);
   --clr-1-a: rgb(34, 34, 34);
   --clr-2: #404040;
-  --clr-2-a: rgba(64, 64, 64, 1);
-  --clr-3: rgba(255, 87, 34, 1);
+  --clr-2: rgb(64, 64, 64);
+  --clr-3: rgb(255, 87, 34);
+  --clr-4: rgb(244, 67, 54);
   --clr-8: #0077B5;
   --clr-10: #fff;
 
@@ -51,6 +51,8 @@ html {
     }
     @media(--extra-small-device) {
       font-size: 4rem;
+      line-height: 3.25rem;
+      padding: 0 20px;
     }
   }
 
@@ -63,8 +65,8 @@ html {
     &.fa-linkedin {
       color: var(--clr-8);
     }
-    &.fa-envelope {
-      color: var(--clr-10);
+    &.fa-google {
+      color: var(--clr-4);
     }
   }
 
@@ -112,7 +114,7 @@ html {
         border: none;
         outline: none;
         & i {
-          color: var(--clr-10);
+          color: var(--clr-3);
           font-size: 1.25em;
         }
       }
@@ -241,7 +243,7 @@ html {
             text-align: right;
           }
           @media(--small-device) {
-            padding: 5px;
+            padding: 0 20px;
           }
         }
       }
@@ -341,9 +343,9 @@ html {
       }
       @media(--small-device) {
         min-height: 70vh;
-      }
-      &#contact {
-        background: var(--clr-1-a);
+        &#contact {
+          background: var(--clr-1-a);
+        }
       }
       & hr {
         border-color: var(--clr-10);

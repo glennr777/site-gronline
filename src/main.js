@@ -1,4 +1,4 @@
-import jQuery from 'jQuery';
+import u from 'umbrellajs';
 import './main.css';
 
 (($) => {
@@ -53,16 +53,16 @@ import './main.css';
 
   const onReady = () => {
     $navButton.on('click', menuClick);
-    $bod.delegate('a', 'click', navClick);
+    $bod.on('a', 'click', navClick);
     if (screen.availWidth <= 480) $navBar.attr(ARIA.HIDDEN, ARIA.HIDDEN_TRUE);
     updateScroll();
     $bod
-      .delegate('.portfolio-box', 'click', showModal)
-      .delegate($modal, 'click', hideModal);
+      .on('.portfolio-box', 'click', showModal)
+      .on($modal, 'click', hideModal);
     $html.addClass('ready');
   };
 
   $doc
     .on('ready', onReady())
     .on('scroll', debouceScroll);
-})(jQuery);
+})(u);
