@@ -4,10 +4,8 @@
   "description": "Live site",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
     "webpack-watch": "webpack --watch",
     "build-prod": "webpack -p",
-    "dev": "concurrently --kill-others \"npm run webpack-watch\" \"npm run start\"",
     "webpack-devserver": "webpack-dev-server --bonjour"
   },
   "keywords": [],

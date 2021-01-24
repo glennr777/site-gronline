@@ -9,6 +9,7 @@ import './main.css';
   const $mainNav = $('#mainNav');
   const $navBar = $('#navBar');
   const $navButton = $('#navButton');
+  const $pageScroll = $('.page-scroll');
   const $modal = $('<div aria-hidden="true" id="modal"><img /></div>');
 
   const CLASSES = {
@@ -59,6 +60,7 @@ import './main.css';
     $bod
       .on('.portfolio-box', 'click', showModal)
       .on($modal, 'click', hideModal);
+    $pageScroll.on('click', navClick);
     $html.addClass('ready');
   };
 
