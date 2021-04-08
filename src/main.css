@@ -23,6 +23,8 @@
 @custom-media --small-device (width <= 480px);
 @custom-media --medium-device (width <= 768px);
 @custom-media --large-device (width > 768px);
+@custom-media --extra-large-device (width > 1170px);
+
 
 html {
     text-rendering: optimizeLegibility;
@@ -126,7 +128,7 @@ html {
       flex-direction: row;
       margin: 0 auto;
       width: 100%;
-      max-width: var(--max-item-width);
+      
       will-change: transform;
 
       & .logo {
@@ -142,6 +144,10 @@ html {
         list-style: none;
         display: flex;
         margin: auto 0 auto auto;
+      }
+      @media (--extra-large-device) {
+        min-width: calc(var(--min-desktop) - 100px);
+        max-width: var(--max-item-width);
       }
       @media(--small-device) {
         position: fixed;
@@ -230,7 +236,6 @@ html {
         & .header-content-inner {
           @media(--small-device) {
             width: 100%;
-            overflow-x: hidden;
           }
         }
         & .header-content-inner-sections {
