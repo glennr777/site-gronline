@@ -25,7 +25,7 @@
     "html-webpack-plugin": "4.5.0",
     "method-override": "3.0.0",
     "mini-css-extract-plugin": "0.11.2",
-    "postcss": "8.1.1",
+    "postcss": "8.2.10",
     "postcss-assets-webpack-plugin": "4.0.0",
     "postcss-cssnext": "3.1.0",
     "postcss-font-grabber": "2.1.0",
