@@ -51,9 +51,5 @@
       "browser": true,
       "node": true
     }
-  },
-  "dependencies": {
-    "jquery": "3.5.1",
-    "umbrellajs": "^3.2.3"
   }
 }

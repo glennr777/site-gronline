@@ -62,7 +62,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './src/index.template.ejs',
-      inject: 'body',
+      inject: 'html',
     }),
   ],
   devServer: {

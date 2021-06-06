@@ -1,4 +1,3 @@
-import u from 'umbrellajs';
 import './main.css';
 
 (($) => {
@@ -67,4 +66,4 @@ import './main.css';
   $doc
     .on('ready', onReady())
     .on('scroll', debouceScroll);
-})(u);
+})(window.$);
