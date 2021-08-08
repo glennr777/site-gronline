@@ -6,6 +6,7 @@ phases:
       - npm install
   build:
     commands:
+      - rm -R images
       - echo Build started on `date`
       - echo Compiling the dist folder
       - npm run-script build-prod
