@@ -11,6 +11,7 @@ phases:
       - npm run-script build-prod
   post_build:
     commands:
+      - aws s3 sync ./build s3://glennrobinsononline.com
       - echo Build completed on `date`
 artifacts:
   files:
