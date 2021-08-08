@@ -1,4 +1,7 @@
 version: 0.2
+environment_variables:
+    plaintext:
+        S3_BUCKET: "glennrobinsononline.com"
 phases:
   pre_build:
     commands:
@@ -11,6 +14,7 @@ phases:
       - npm run-script build-prod
   post_build:
     commands:
+      - aws s3 rm s3://${S3_BUCKET} --recursive
       - echo Build completed on `date`
 artifacts:
   files:
