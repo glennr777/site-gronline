@@ -13,8 +13,10 @@ phases:
       - echo Compiling the dist folder
       - npm run-script build-prod
   post_build:
+    on-failure: ABORT
     commands:
       - aws s3 rm s3://${S3_BUCKET} --recursive
+      - aws cloudfront create-invalidation --distribution-id E1REPJ9MCVVYQB --paths '/*'
       - echo Build completed on `date`
 artifacts:
   files:
