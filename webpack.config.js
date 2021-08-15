@@ -1,13 +1,12 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
   output: {
+    clean: true,
     path: __dirname + '/dist',
     filename: 'bundle.[hash].js'
   },
@@ -41,7 +40,7 @@ module.exports = {
         test: /\.svg$/,
         loader: 'svg-inline-loader'
       },
-      { test: /\.(woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+      { test: /\.(woff|woff2|eot|ttf|svg)$/, loader: 'url-loader' },
       {
         test: /\.(jpg|png|ico)$/,
         exclude: /node_modules\//,
@@ -55,9 +54,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      path: __dirname + '/dist',
       filename: '[name].[hash].css',
     }),
     new HtmlWebpackPlugin({
@@ -76,7 +73,6 @@ module.exports = {
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,
       }),
-      new CssMinimizerPlugin(),
     ],
   },
 };

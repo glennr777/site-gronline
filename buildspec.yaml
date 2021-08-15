@@ -11,7 +11,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Compiling the dist folder
-      - npm run-script build-prod
+      - npm run-script build
   post_build:
     on-failure: ABORT
     commands:
