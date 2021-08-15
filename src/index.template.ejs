@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head data-tid="1508211126">
+  <head data-tid="<%= new Date().valueOf() %>">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
     <link rel="icon" href="<%= require('./img/favicon-32x32.png').default %>" sizes="32x32">
     <link rel="shortcut icon" href="<%= require('./img/favicon.ico').default %>">
     <script>
-      document.documentElement.className = 'js';
+      document.documentElement.classList.add('js');
     </script>
   </head>
 
