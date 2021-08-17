@@ -1,6 +1,7 @@
+import $ from 'cash-dom';
 import './main.css';
 
-(($) => {
+$(() => {
   const $win = $(window);
   const $html = $('html');
   const $doc = $(document);
@@ -51,19 +52,14 @@ import './main.css';
 
   const hideModal = () => $modal.remove();
 
-  const onReady = () => {
-    $navButton.on('click', menuClick);
-    $bod.on('a', 'click', navClick);
-    if (screen.availWidth <= 480) $navBar.attr(ARIA.HIDDEN, ARIA.HIDDEN_TRUE);
-    updateScroll();
-    $bod
-      .on('.portfolio-box', 'click', showModal)
-      .on($modal, 'click', hideModal);
-    $pageScroll.on('click', navClick);
-    $html.addClass('ready');
-  };
-
-  $doc
-    .on('ready', onReady())
-    .on('scroll', debouceScroll);
-})(window.$);
+  $navButton.on('click', menuClick);
+  $bod.on('a', 'click', navClick);
+  if (screen.availWidth <= 480) $navBar.attr(ARIA.HIDDEN, ARIA.HIDDEN_TRUE);
+  updateScroll();
+  $bod
+    .on('.portfolio-box', 'click', showModal)
+    .on($modal, 'click', hideModal);
+  $pageScroll.on('click', navClick);
+  $html.addClass('ready');
+  $doc.on('scroll', debouceScroll);
+});

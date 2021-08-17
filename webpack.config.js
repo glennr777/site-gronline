@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
@@ -8,7 +10,7 @@ module.exports = {
   output: {
     clean: true,
     path: __dirname + '/dist',
-    filename: 'bundle.[hash].js'
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -54,13 +56,13 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
-    }),
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.template.ejs',
       inject: 'html',
+      inlineSource: '.(js|css)$',
     }),
+    new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -73,6 +75,7 @@ module.exports = {
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,
       }),
+      new CssMinimizerPlugin(),
     ],
   },
 };
