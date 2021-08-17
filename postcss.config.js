@@ -4,6 +4,5 @@ module.exports = {
     'postcss-import': {},
     'postcss-cssnext': {},
     'postcss-nesting': {},
-    'postcss-font-magician': {},
   },
 };
