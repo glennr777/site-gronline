@@ -62,13 +62,28 @@ html {
     text-decoration: none;
   }
 
-  & i {
+  & .ico {
+    display: inline-block;
+    width: 4em;
+    height: 4em;
     color: var(--clr-3);
-    &.fa-linkedin {
-      color: var(--clr-8);
+    &.js-square {
+      background: svg-load("img/js-square.svg", fill=var(--clr-3)) no-repeat;
     }
-    &.fa-google {
-      color: var(--clr-4);
+    &.react {
+      background: svg-load("img/react.svg", fill=var(--clr-3)) no-repeat;
+    }
+    &.html5 {
+      background: svg-load("img/html5.svg", fill=var(--clr-3)) no-repeat;
+    }
+    &.css3 {
+      background: svg-load("img/css3.svg", fill=var(--clr-3)) no-repeat;
+    }
+    &.linkedin {
+      background: svg-load("img/linkedin.svg", fill=var(--clr-8)) no-repeat;
+    }
+    &.google {
+      background: svg-load("img/google.svg", fill=var(--clr-4)) no-repeat;
     }
   }
 
@@ -110,10 +125,12 @@ html {
 
     & button {
       display: none;
+      background: svg-load("img/bars.svg", fill=var(--clr-10)) no-repeat;
+      width: 1.7em;
+      height: 1.7em;
       @media(--small-device) {
         display: block;
         margin-right: 5%;
-        background: none;
         border: none;
         outline: none;
         & i {
