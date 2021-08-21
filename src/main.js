@@ -8,6 +8,7 @@ $(() => {
   const $bod = $(document.body);
   const $mainNav = $('#mainNav');
   const $navBar = $('#navBar');
+  const $navBarLinks = $navBar.find('a');
   const $navButton = $('#navButton');
   const $pageScroll = $('.page-scroll');
   const $modal = $('<div aria-hidden="true" id="modal"><img /></div>');
@@ -18,12 +19,13 @@ $(() => {
 
   const ARIA = {
     HIDDEN: 'aria-hidden',
-    HIDDEN_TRUE: 'hidden',
+    HIDDEN_TRUE: 'true',
   };
 
   const toggleMenu = (to) => {
     const set = to !== undefined ? to : $navBar.attr(ARIA.HIDDEN) === ARIA.HIDDEN_TRUE;
     $navBar.attr(ARIA.HIDDEN, set ? '' : ARIA.HIDDEN_TRUE);
+    $navBarLinks.attr({ tabIndex: set ? 0 : -1 });
   };
 
   const menuClick = (e) => {
@@ -45,7 +47,7 @@ $(() => {
   const showModal = (e) => {
     if (e && e.preventDefault) e.preventDefault();
     $modal.find('img').attr({ src: e.currentTarget.href });
-    $modal.attr({ 'aria-hidden': '' });
+    $modal.attr({ [ARIA.HIDDEN]: '' });
     $bod.append($modal);
     return false;
   };
@@ -54,7 +56,9 @@ $(() => {
 
   $navButton.on('click', menuClick);
   $bod.on('a', 'click', navClick);
-  if (screen.availWidth <= 480) $navBar.attr(ARIA.HIDDEN, ARIA.HIDDEN_TRUE);
+  if ($bod[0].offsetWidth <= 480) {
+    toggleMenu(false);
+  }
   updateScroll();
   $bod
     .on('.portfolio-box', 'click', showModal)

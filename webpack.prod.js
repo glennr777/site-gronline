@@ -4,6 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const InlineChunkHtmlPlugin = require('inline-chunk-html-plugin');
 const HTMLInlineCSSWebpackPlugin = require('html-inline-css-webpack-plugin').default;
 const RemovePlugin = require('remove-files-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
+
 const common = require('./webpack.common.js');
 
 const config =
@@ -19,7 +22,8 @@ const config =
       new HtmlWebpackPlugin({
         template: './src/index.template.ejs',
         inject: 'body',
-        filename: 'index.html'
+        filename: 'index.html',
+        scriptLoading: 'defer'
       }),
       new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/.+[.]js/]),
       new HTMLInlineCSSWebpackPlugin(),
@@ -31,6 +35,15 @@ const config =
         }
       }),
     ],
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          test: /\.js(\?.*)?$/i,
+        }),
+        new CssMinimizerPlugin(),
+      ],
+    },
   });
 
 module.exports = config;

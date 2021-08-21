@@ -2,8 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
@@ -34,14 +32,5 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000
-  },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        test: /\.js(\?.*)?$/i,
-      }),
-      new CssMinimizerPlugin(),
-    ],
   },
 };
