@@ -11,7 +11,6 @@ $(() => {
   const $navBarLinks = $navBar.find('a');
   const $navButton = $('#navButton');
   const $pageScroll = $('.page-scroll');
-  const $modal = $('<div aria-hidden="true" id="modal"><img /></div>');
 
   const CLASSES = {
     MENU_OPEN: 'open',
@@ -44,25 +43,12 @@ $(() => {
     requestAnimationFrame(updateScroll);
   };
 
-  const showModal = (e) => {
-    if (e && e.preventDefault) e.preventDefault();
-    $modal.find('img').attr({ src: e.currentTarget.href });
-    $modal.attr({ [ARIA.HIDDEN]: '' });
-    $bod.append($modal);
-    return false;
-  };
-
-  const hideModal = () => $modal.remove();
-
   $navButton.on('click', menuClick);
   $bod.on('a', 'click', navClick);
   if ($bod[0].offsetWidth <= 480) {
     toggleMenu(false);
   }
   updateScroll();
-  $bod
-    .on('.portfolio-box', 'click', showModal)
-    .on($modal, 'click', hideModal);
   $pageScroll.on('click', navClick);
   $html.addClass('ready');
   $doc.on('scroll', debouceScroll);

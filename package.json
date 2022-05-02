@@ -4,8 +4,8 @@
   "description": "Live site",
   "main": "index.js",
   "scripts": {
-    "build": "webpack  --config webpack.prod.js",
-    "start": "webpack serve  --config webpack.dev.js --progress",
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack serve --config webpack.dev.js --progress",
     "preview": "node server.js"
   },
   "keywords": [],
