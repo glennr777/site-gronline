@@ -6,7 +6,7 @@ var express = require("express"),
     errorHandler = require('errorhandler'),
     methodOverride = require('method-override'),
     hostname = 'localhost',
-    port = 9000,
+    port = 3000,
     publicDir = process.argv[2] || __dirname + '/dist',
     path = require('path');
 
