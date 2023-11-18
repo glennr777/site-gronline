@@ -17,7 +17,7 @@ module.exports = {
       },
       { test: /\.(woff|woff2|eot|ttf|svg)$/, loader: 'url-loader' },
       {
-        test: /\.(jpg|png|ico)$/,
+        test: /\.(ico)$/,
         exclude: /node_modules\//,
         use: {
           loader: 'url-loader',
@@ -25,12 +25,16 @@ module.exports = {
             name: '[name].[ext]'
           }
         }
-      }
+      },
+      {
+        test: /\.(jpe?g|png)$/i,
+        type: "asset",
+      },
     ]
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000
+    port: 3000
   },
 };

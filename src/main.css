@@ -6,10 +6,10 @@
   --max-item-width: 500px;
 
   /* colours */
-  --clr-1: rgb(26, 26, 26);
-  --clr-1-a: rgb(34, 34, 34);
-  --clr-2: #404040;
-  --clr-2: rgb(64, 64, 64);
+  --clr-1: rgb(15, 15, 15);
+  --clr-1-a: rgb(19, 19, 19);
+  --clr-2: #000000;
+  --clr-2: rgb(0, 0, 0);
   --clr-3: rgb(255, 87, 34);
   --clr-4: rgb(244, 67, 54);
   --clr-8: #0077B5;
@@ -48,6 +48,10 @@ html {
     font-size: 5.75rem;
     line-height: 4.5rem;
     font-weight: 700;
+    padding-top: 2em;
+    text-shadow: 0px 0px 10px var(--clr-2);
+    background: url("./img/me.png?as=webp&width=1024&height=1024") 100% calc(100%) no-repeat;
+    background-size: 3em;
     @media(--small-device) {
       font-size: 5rem;
       padding: 0 20px;
@@ -167,6 +171,7 @@ html {
         color: var(--clr-10);
         line-height: 2rem;
         font-weight: 700;
+        text-shadow: 0px 0px 0.2em var(--clr-2);
       }
 
       & ul {
@@ -322,6 +327,7 @@ html {
     /* About */
     & #main-content {
       background: var(--clr-1);
+      box-shadow: 0 -10px 5em var(--clr-1);
       color: var(--clr-10);
       display: flex;
       flex-direction: row;
