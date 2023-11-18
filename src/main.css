@@ -45,16 +45,44 @@ html {
   & h1 {
     text-align: left;
     margin-bottom: 0.25rem;
-    font-size: 5.75rem;
-    line-height: 4.5rem;
-    font-weight: 700;
     padding-top: 2em;
     text-shadow: 0px 0px 10px var(--clr-2);
-    background: url("./img/me.png?as=webp&width=1024&height=1024") 100% calc(100%) no-repeat;
-    background-size: 3em;
+    & span {
+      font-weight: 700;
+      font-size: 5.75rem;
+      line-height: 4.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    &::before {
+      display: block;
+      width: 25rem;
+      height: 25rem;
+      content: "";
+      position: absolute;
+      background: url("./img/me.png?as=webp&width=1024&height=1024") 100% calc(100%) no-repeat;
+      background-size: 8em;
+      right: 0;
+      bottom: 4rem;
+      z-index: 0;
+      filter: contrast(1.2);
+    }
+
     @media(--small-device) {
-      font-size: 5rem;
       padding: 0 20px;
+      & span {
+        font-size: clamp(1rem, 4rem, 5rem);
+        line-height: 3rem;
+      }
+      &::before {
+        position: relative;
+        width: calc(100% + 40px);
+        background-size: cover;
+        background-position: 50% 50%;
+        top: auto;
+        bottom: -7rem;
+        left: -20px;
+      }
     }
     @media(--extra-small-device) {
       font-size: 3.75rem;
@@ -95,6 +123,8 @@ html {
     transition: all 500ms ease-out;
     border-bottom: 1px solid transparent;
     will-change: opacity;
+    z-index: 3;
+    box-shadow: 0px 0px 15px var(--clr-1);
     &.scrolled {
       background-color: var(--clr-1);
       border-bottom-color: var(--clr-3);
@@ -264,6 +294,7 @@ html {
           font-weight: 600;
         }
         & .header-content-inner {
+          position: relative;
           @media(--small-device) {
             width: 100%;
             overflow: hidden;
