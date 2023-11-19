@@ -44,6 +44,7 @@ const config =
         }),
         new CssMinimizerPlugin(),
         new ImageMinimizerPlugin({
+          test: /\.(png|jpg)$/i,
           deleteOriginalAssets: false,
           generator: [
             {

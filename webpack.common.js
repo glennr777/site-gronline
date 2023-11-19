@@ -11,11 +11,7 @@ module.exports = {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
-      {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
-      },
-      { test: /\.(woff|woff2|eot|ttf|svg)$/, loader: 'url-loader' },
+      { test: /\.(woff|woff2|eot|ttf)$/, loader: 'url-loader' },
       {
         test: /\.(ico)$/,
         exclude: /node_modules\//,
