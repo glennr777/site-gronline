@@ -60,7 +60,7 @@ html {
       height: 25rem;
       content: "";
       position: absolute;
-      background: url("./img/me-poster.svg") 100% calc(100%) no-repeat;
+      background: svg-load("./img/me-poster.svg") 100% calc(100%) no-repeat;
       background-size: 8em;
       right: 0;
       bottom: 4rem;
