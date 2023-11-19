@@ -1,30 +1,14 @@
-import $ from 'cash-dom';
 import './main.css';
 
-$(() => {
-  const $win = $(window);
-  const $html = $('html');
-  const $doc = $(document);
-  const $bod = $(document.body);
-  const $mainNav = $('#mainNav');
-  const $navBar = $('#navBar');
-  const $navBarLinks = $navBar.find('a');
-  const $navButton = $('#navButton');
-  const $pageScroll = $('.page-scroll');
-
-  const CLASSES = {
-    MENU_OPEN: 'open',
-  };
-
-  const ARIA = {
-    HIDDEN: 'aria-hidden',
-    HIDDEN_TRUE: 'true',
-  };
+{
+  const mainNav = document.getElementById('mainNav');
+  const navBar = document.getElementById('navBar');
+  const navButton = document.getElementById('navButton');
 
   const toggleMenu = (to) => {
-    const set = to !== undefined ? to : $navBar.attr(ARIA.HIDDEN) === ARIA.HIDDEN_TRUE;
-    $navBar.attr(ARIA.HIDDEN, set ? '' : ARIA.HIDDEN_TRUE);
-    $navBarLinks.attr({ tabIndex: set ? 0 : -1 });
+    const set = to !== undefined ? to : navBar.ariaHidden === 'true';
+    navBar.ariaHidden = set ? '' : 'true';
+    navBar.tabIndex = set ? 0 : -1;
   };
 
   const menuClick = (e) => {
@@ -33,23 +17,22 @@ $(() => {
     toggleMenu();
   };
 
-  const navClick = () => toggleMenu(false);
-
   const updateScroll = () => {
-    $mainNav.toggleClass('scrolled', window.scrollY > 0);
+    toggleMenu(false);
+    mainNav.classList.toggle('scrolled', window.scrollY > 0);
   };
 
   const debouceScroll = () => {
     requestAnimationFrame(updateScroll);
   };
 
-  $navButton.on('click', menuClick);
-  $bod.on('a', 'click', navClick);
-  if ($bod[0].offsetWidth <= 480) {
+  navButton.addEventListener('click', menuClick);
+  
+  if (document.body.offsetWidth <= 480) {
     toggleMenu(false);
   }
+  
   updateScroll();
-  $pageScroll.on('click', navClick);
-  $html.addClass('ready');
-  $doc.on('scroll', debouceScroll);
-});
+  document.body.parentNode.classList.add('ready');
+  window.addEventListener('scroll', debouceScroll);
+};
