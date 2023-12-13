@@ -12,7 +12,7 @@ const config =
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
           template: './src/index.template.ejs',
-          inject: 'html',
+          inject: 'body',
           inlineSource: '.(js|css)$',
         }),
       ],

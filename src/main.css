@@ -17,12 +17,29 @@
 
   /* misc */
   --borderR: 3px;
+
+  /* transforms */
+  --navbarin:  matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,1000,1);
+  --navbarout: matrix3d(1,0,0,0,0,0,1,0.001,0,-1,0,0,0,0,1000,1);
 }
 
 @custom-media --extra-small-device (width <= 375px);
 @custom-media --small-device (width <= 480px);
 @custom-media --medium-device (width <= 768px);
 @custom-media --large-device (width > 768px);
+
+@keyframes mainNavScrolled {
+  to {
+    background-color: var(--clr-1);
+    border-bottom: 1px solid var(--clr-3);
+  }
+}
+
+@keyframes mainNavLinksScrolled {
+  to {
+    color: var(--clr-10);
+  }
+}
 
 html {
     text-rendering: optimizeLegibility;
@@ -99,35 +116,32 @@ html {
     height: 4em;
     color: var(--clr-3);
     &.js-square {
-      background: svg-load("img/js-square.svg", fill=var(--clr-3)) no-repeat;
+      background: svg-load("img/js-square.svg", fill=rgb(255, 87, 34)) no-repeat;
     }
     &.react {
-      background: svg-load("img/react.svg", fill=var(--clr-3)) no-repeat;
+      background: svg-load("img/react.svg", fill=rgb(255, 87, 34)) no-repeat;
     }
     &.html5 {
-      background: svg-load("img/html5.svg", fill=var(--clr-3)) no-repeat;
+      background: svg-load("img/html5.svg", fill=rgb(255, 87, 34)) no-repeat;
     }
     &.css3 {
-      background: svg-load("img/css3.svg", fill=var(--clr-3)) no-repeat;
+      background: svg-load("img/css3.svg", fill=rgb(255, 87, 34)) no-repeat;
     }
     &.linkedin {
-      background: svg-load("img/linkedin.svg", fill=var(--clr-8)) no-repeat;
+      background: svg-load("img/linkedin.svg", fill=#0077B5) no-repeat;
     }
     &.google {
-      background: svg-load("img/google.svg", fill=var(--clr-4)) no-repeat;
+      background: svg-load("img/google.svg", fill=rgb(244, 67, 54)) no-repeat;
     }
   }
 
   & #mainNav {
     transition: all 500ms ease-out;
     border-bottom: 1px solid transparent;
-    will-change: opacity;
+    will-change: color;
     z-index: 3;
     box-shadow: 0px 0px 15px var(--clr-1);
-    &.scrolled {
-      background-color: var(--clr-1);
-      border-bottom-color: var(--clr-3);
-    }
+    transform: translateZ(0);
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -136,6 +150,10 @@ html {
     flex: 1 1 auto;
     align-items: center;
     justify-content: space-between;
+    animation: mainNavScrolled forwards linear;
+    animation-timeline: scroll();
+    animation-range-end: 20vh;
+
     @media(--small-device) {
       background-color: var(--clr-1);
       flex-direction: row-reverse;
@@ -155,19 +173,15 @@ html {
       &:active {
         background: var(--clr-1);
       }
-    }
-    &.scrolled a {
-      color: var(--clr-10);
-      &:hover,
-      &:focus {
-        background: var(--clr-3);
-      }
-    }
 
+      animation: mainNavLinksScrolled forwards linear;
+      animation-timeline: scroll();
+      animation-range-end: 20vh;
+    }
 
     & button {
       display: none;
-      background: svg-load("img/bars.svg", fill=var(--clr-10)) no-repeat;
+      background: svg-load("img/bars.svg", fill=#fff) no-repeat;
       width: 1.7em;
       height: 1.7em;
       @media(--small-device) {
@@ -218,23 +232,32 @@ html {
         padding: 0;
         left: 0;
         top: 2.7em;
-        transform: matrix3d(1,0,0,0,0,0,1,0.001,0,-1,0,0,0,0,1000,1);
+        transform: var(--navbarout);
         transform-origin: 50% 0%;
         perspective: 460;
         perspective-origin: 50% 50%;
         transition: 333ms transform ease-out;
-        
-        &[aria-hidden=""],
-        &[aria-hidden="false"]{
-          transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,1000,1);
-          & li a {
-            color: var(--clr-10);
-          }
-        }
-        & ul li {
-          display: flex;
+      }
+    }
+
+    & button:focus,
+    & button:active,
+    & button:focus-within {
+      & ~ #navBar {
+        transform: var(--navbarin);
+        & li a {
+          color: var(--clr-10);
         }
       }
+      & ul li {
+        display: flex;
+      }
+    }
+    & #navBar:has(*:focus) {
+      transform: var(--navbarin);
+        & li a {
+          color: var(--clr-10);
+        }
     }
   }
   & body {

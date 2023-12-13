@@ -17,13 +17,15 @@ const config =
       clean: true,
       path: __dirname + '/dist',
     },
+    stats: {
+      warnings:false
+    },
     plugins: [
       new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.template.ejs',
-        inject: 'body',
-        filename: 'index.html',
-        scriptLoading: 'defer'
+        inject: false,
+        inlineSource: '.(js|css)$',
       }),
       new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/.+[.]js/]),
       new HTMLInlineCSSWebpackPlugin(),
@@ -41,7 +43,16 @@ const config =
         new TerserPlugin({
           test: /\.js(\?.*)?$/i,
         }),
-        new CssMinimizerPlugin(),
+        new CssMinimizerPlugin({
+          minimizerOptions: {
+            preset: [
+              "default",
+              {
+                cssDeclarationSorter: false,
+              }
+            ]
+          }
+        }),
       ],
     },
   });

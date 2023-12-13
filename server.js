@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-var express = require("express"),
+const express = require("express"),
+    compression = require('compression'),
     app = express(),
     bodyParser = require('body-parser'),
     errorHandler = require('errorhandler'),
@@ -9,6 +10,8 @@ var express = require("express"),
     port = 3000,
     publicDir = process.argv[2] || __dirname + '/dist',
     path = require('path');
+
+app.use(compression());
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(publicDir, "/index.html"));
