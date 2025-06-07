@@ -82,7 +82,7 @@ h1 {
   margin-bottom: 0.25rem;
   padding-top: 2em;
   text-shadow: 0px 0px 10px var(--clr-2);
-  overflow: hidden;
+  
   &::before {
     display: block;
     width: 25rem;
@@ -99,18 +99,23 @@ h1 {
     animation: slideIn calc(var(--animTime) * 2) forwards;
     animation-delay: calc(var(--animTime) * 2);
   }
-  span {
+  & > span {
     display: block;
-    font-weight: 700;
-    font-size: 5.75rem;
-    line-height: 4.5rem;
     position: relative;
     z-index: 2;
-    transform: translateY(100%);
-    opacity: 0.1;
-    animation: slideIn var(--animTime) forwards;
-    animation-delay: var(--animTime);
-    animation-timing-function: var(--easingStandard);
+    overflow: hidden;
+    
+    span {
+      display: block;
+      font-weight: 700;
+      font-size: 5.75rem;
+      line-height: 4.5rem;
+      transform: translateY(100%);
+      opacity: 0;
+      animation: slideIn var(--animTime) forwards;
+      animation-delay: var(--animTime);
+      animation-timing-function: var(--easingStandard);
+    }
   }
 
   @media (--small-device) {
@@ -200,6 +205,7 @@ a {
     animation: mainNavLinksScrolled forwards linear;
     animation-timeline: scroll();
     animation-range-end: 20vh;
+    border-radius: 4px;
 
     @media (--small-device) {
       color: var(--clr-10);
